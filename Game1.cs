@@ -60,7 +60,7 @@ namespace Keyboard_and_Mouse_Events
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();                      
-
+             
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 pacLocation = new Rectangle(mouseState.X - 37, mouseState.Y - 37,75,75);
