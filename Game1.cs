@@ -65,6 +65,7 @@ namespace Keyboard_and_Mouse_Events
             {
                 pacLocation = new Rectangle(mouseState.X - 37, mouseState.Y - 37,75,75);
                 
+
             }
 
             if (keyboardState.IsKeyDown(Keys.Up))
@@ -93,11 +94,23 @@ namespace Keyboard_and_Mouse_Events
                 pacTexture = pacSleepTexture;
             }
 
+            if ( pacLocation.Left < 0)
+            {
+                pacLocation.X = 0;
+            }
+            if (pacLocation.Top < 0 )
+            {
+                pacLocation.Y = 0;
+            }
 
+            if (pacLocation.Bottom >= _graphics.PreferredBackBufferHeight)
+                pacLocation.Y = _graphics.PreferredBackBufferHeight - 75;
+            if (pacLocation.Right >= _graphics.PreferredBackBufferWidth)
+                pacLocation.X = _graphics.PreferredBackBufferWidth - 75;
 
-            // TODO: Add your update logic here
+                // TODO: Add your update logic here
 
-            base.Update(gameTime);
+                base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
